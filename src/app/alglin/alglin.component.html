@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<body>
+    <div class="form-container">
+      <h2>Algoritmo Lineal</h2>
+      <form id="orderForm" [formGroup]="orderForm">
+      
+        <div class="form-group">
+          <label for="semilla">Semilla Xo</label>
+          <input type="number" class="form-control" formControlName="semilla" placeholder="Ingrese una semilla Xo">
+        </div>
+        
+        <div class="form-group">
+          <label for="k">Valor de k</label>
+          <input type="number" class="form-control" formControlName="k" placeholder="Ingrese el valor de k">
+        </div>
+
+        <div class="form-group">
+          <label for="p">Periodo (p)</label>
+          <input type="number" class="form-control" formControlName="p" placeholder="Ingrese el periodo p">
+        </div>
+
+        <div class="form-group">
+          <label for="limite">Limite</label>
+          <input type="number" class="form-control" formControlName="limite" placeholder="Ingrese la cantidad de numeros a generar">
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn-submit" (click)="submitForm()">Generar</button>
+          <br>
+          <button type="button" class="btn-clear" (click)="clearForm()">Limpiar</button>
+        </div>
+      </form>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Información de la Secuencia</h5>
+        
+          <p class="card-text">Valor de g: {{ g }}</p>
+          <p class="card-text">Valor de m: {{ m }}</p>
+          <p class="card-text">Valor de c: {{ c }}</p>
+          <p class="card-text">Valor de a: {{ a }}</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+      <h2>Números Generados</h2>
+      <div class="table-scrollable">
+        <table>
+          <thead>
+            <tr>
+              <th>i</th>
+              <th>Operacion</th>
+              <th>Xi</th>
+              <th>Ri</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let NSA of numeros">
+              <td>{{ NSA.i }}</td>
+              <td>{{ NSA.semilla }}</td> 
+              <td>{{ NSA.xi }}</td>
+              <td>{{ NSA.ri }}</td>
+              <td>{{ NSA.observacion }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+</body>
+
+<app-footer></app-footer>
